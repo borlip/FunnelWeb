@@ -4,5 +4,8 @@
 }
 
 <div class='entry @String.Join(" ", Html.CssKeywordsFor(Model.Entry))'>
-  @Html.RenderTrusted(Model.Entry.Body, Model.Entry.Format)
+    @{
+        const string appendHTML = "<a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-count=\"horizontal\" data-via=\"borlip\">Tweet</a>";
+    }
+    @Html.RenderTrusted(Model.Entry.Body + appendHTML, Model.Entry.Format)
 </div>
